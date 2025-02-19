@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 class Account
 {
-	String holderName;
+	String accountHolderName;
 	String branchName;
 	long phone;
 	String accountType;
 	double balance;
 	
-	public Account(String holderName, String branchName, long phone, String accountType) {
-		this.holderName = holderName;
+	public Account(String accountHolderName, String branchName, long phone, String accountType) {
+		this.accountHolderName = accountHolderName;
 		this.branchName = branchName;
 		this.phone = phone;
 		this.accountType = accountType;
@@ -73,7 +73,7 @@ class Bank
 			return;
 		}
 		Account account = bank.get(accountnumber);
-		System.out.println("Name : " + account.holderName);
+		System.out.println("Name : " + account.accountHolderName);
 		System.out.println("Account Type : " + account.accountType);
 		System.out.println("Balance : " + account.balance);
 	}
@@ -92,7 +92,7 @@ class Bank
 			System.out.println("Deposited");
 			return;
 		}
-		System.out.println("Account Not Fount");
+		System.out.println("Account Not Found");
 		
 	}
 	
@@ -108,11 +108,12 @@ class Bank
 			Account account = bank.get(accountnumber);
 			if(account.balance<amount)
 			{
-				System.out.println("Transaction cannot be done");
+				System.out.println("Insufficient balance");
 				return;
 			}
 			account.balance-=amount;
 			System.out.println("Transaction completed");
+			System.out.println("Available balance : " + account.balance);
 			return;
 		}
 		System.out.println("Account Not Found");
@@ -150,6 +151,7 @@ public class BankExample {
 				break;
 			case 5:
 				bank.withDraw();
+				break;
 			default:
 				System.out.println("Invalid");
 			}
