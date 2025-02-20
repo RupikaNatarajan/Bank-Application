@@ -155,7 +155,7 @@ public class BankExample {
 			default:
 				System.out.println("Invalid");
 			}
-			System.out.println("*========================*\n\n\n");
+			System.out.println("*========================*\n\n");
 		}
 		
 		
